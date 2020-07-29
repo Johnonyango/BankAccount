@@ -6,6 +6,6 @@ public class Main {
         BankAccountBase bankAccount = new BankAccountBase();
         bankAccount.displayAccountInfo();
         bankAccount.getBalance();
-        bankAccount.withdraw(0);
+        bankAccount.withdraw(0); //Test amount 0;
     }
 }

@@ -2,7 +2,6 @@ package com.john;
 
 import org.jetbrains.annotations.NotNull;
 
-import javax.naming.InsufficientResourcesException;
 import java.util.Date;
 
 public class BankAccountBase {
@@ -36,7 +35,7 @@ public class BankAccountBase {
         this.setBalance(this.getBalance() + amount);
         this.showBalance();
     }
-    void withdraw(double amount) throws InsufficientBalanceException {
+    void withdraw(Double amount) throws InsufficientBalanceException {
         if(balance< amount)
             throw new InsufficientBalanceException();
         this.setBalance(this.balance-amount); //********

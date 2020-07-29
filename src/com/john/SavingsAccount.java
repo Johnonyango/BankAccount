@@ -15,7 +15,7 @@ public class SavingsAccount extends BankAccountBase {
     @Override
     void calculateInterest() {
         super.calculateInterest();
-        final double rate = 0.75 / 100;
+        final double rate = 5 / 100;
         final int time = 1; // Year
         double interest = (rate * getBalance() * time);
         this.setBalance(getBalance() + interest);
@@ -23,13 +23,11 @@ public class SavingsAccount extends BankAccountBase {
         System.out.println("added interest and updated balance");
     }
 
-    void withdraw() throws insufficientBalanceException {
+    void withdraw() throws InsufficientBalanceException {
         if (getBalance() < 2500) {
-            this.withdraw();
+            super.withdraw(null);
         } else {
-            throw new insufficientBalanceException();
+            throw new InsufficientBalanceException();
         }
-
-
     }
 }
