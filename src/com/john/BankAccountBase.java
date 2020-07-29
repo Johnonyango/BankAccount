@@ -42,15 +42,17 @@ public class BankAccountBase {
         this.setBalance(this.balance-amount); //********
         this.showBalance();
     }
+    void calculateInterest(){
+        System.out.println("Interest");
+    }
+
 //    Getters and setters
     public String getAccountNumber() {
         return accountNumber;
     }
-
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
-
     public String getName() {
         return name;
     }
@@ -73,13 +75,6 @@ public class BankAccountBase {
 
     public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
-    }
-
-
-
-
-    static double calculateInterest(){
-        return 0.0f;
     }
 
     @Override
