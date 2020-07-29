@@ -36,7 +36,7 @@ public class BankAccountBase {
         this.showBalance();
     }
     void withdraw(Double amount) throws InsufficientBalanceException {
-        if(balance< amount)
+        if(this.balance< amount)
             throw new InsufficientBalanceException();
         this.setBalance(this.balance-amount); //********
         this.showBalance();
