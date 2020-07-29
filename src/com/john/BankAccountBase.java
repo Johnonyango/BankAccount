@@ -2,14 +2,15 @@ package com.john;
 
 import org.jetbrains.annotations.NotNull;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.Date;
 
 public class BankAccountBase {
     //    Properties/Attributes
     private String accountNumber;
     private String name;
-    private static double balance;
-    private Date dateCreated;
+    protected double balance;
+    Date dateCreated;
 
     //    Constructor without parameters
     public BankAccountBase() {
@@ -29,8 +30,18 @@ public class BankAccountBase {
         System.out.println(this.toString());
     }
     void showBalance(){
-        System.out.println(this.getBalance());
-}
+        System.out.println(this.balance);
+    }
+    void deposit(double amount) throws NegativeBalanceExeption{
+        this.setBalance(this.getBalance() + amount);
+        this.showBalance();
+    }
+    void withdraw(double amount) throws InsufficientBalanceException {
+        if(balance< amount)
+            throw new InsufficientBalanceException();
+        this.setBalance(this.balance-amount); //********
+        this.showBalance();
+    }
 //    Getters and setters
     public String getAccountNumber() {
         return accountNumber;
@@ -52,7 +63,7 @@ public class BankAccountBase {
         return balance;
     }
 
-    public void setBalance(Float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -65,18 +76,8 @@ public class BankAccountBase {
     }
 
 
-    static double deposit(double amount){
-        return amount + balance;
-    }
-    static double withdraw(Float amount){
-        if(balance>amount)
-            try {
-                return balance-amount;
-            }catch (Exception e){
-                System.out.println("Invalid operation. Your balance is less");
-            }
-        return 0;
-    }
+
+
     static double calculateInterest(){
         return 0.0f;
     }

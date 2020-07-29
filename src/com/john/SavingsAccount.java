@@ -12,7 +12,6 @@ public class SavingsAccount extends BankAccountBase{
         BankAccountBase baseConstructor = new BankAccountBase();
     }
 
-    @Override
     public void setBalance(Float balance) {
         super.setBalance(balance);
     }
