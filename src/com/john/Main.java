@@ -3,6 +3,8 @@ package com.john;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        BankAccountBase bankAccount = new BankAccountBase();
+        bankAccount.displayAccountInfo();
+        bankAccount.getBalance();
     }
 }

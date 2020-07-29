@@ -1,8 +1,10 @@
 package com.john;
 
+import org.jetbrains.annotations.NotNull;
+
 public class SavingsAccount extends BankAccountBase{
     @Override
-    public Float getBalance() {
+    public @NotNull double getBalance() {
         return super.getBalance();
     }
 

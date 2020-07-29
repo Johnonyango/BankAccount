@@ -5,32 +5,32 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Date;
 
 public class BankAccountBase {
-    //    Properties
-    @NotNull
+    //    Properties/Attributes
     private String accountNumber;
-
-    @NotNull
     private String name;
-
-    @NotNull
-    private static Float balance;
-
-    @NotNull
+    private static double balance;
     private Date dateCreated;
 
     //    Constructor without parameters
     public BankAccountBase() {
-        this.dateCreated = new Date();
+        this.setDateCreated(new Date());
     }
 
     //    Constructor with parameters
-    BankAccountBase(String accountNumber, String name, Float balance) {
+    BankAccountBase(String accountNumber, String name, double balance) {
         this.accountNumber = accountNumber;
         this.name = name;
         this.balance = balance;
-        this.dateCreated = new Date();
+        this.setDateCreated(new Date());
     }
 
+    //    ******Methods********
+    public void displayAccountInfo(){
+        System.out.println(this.toString());
+    }
+    void showBalance(){
+        System.out.println(this.getBalance());
+}
 //    Getters and setters
     public String getAccountNumber() {
         return accountNumber;
@@ -48,7 +48,7 @@ public class BankAccountBase {
         this.name = name;
     }
 
-    public Float getBalance() {
+    public @NotNull double getBalance() {
         return balance;
     }
 
@@ -64,21 +64,11 @@ public class BankAccountBase {
         this.dateCreated = dateCreated;
     }
 
-//    ******Methods********
-    public static void displayAccountInfo(){
-        BankAccountBase bankDetails = new BankAccountBase();
-        bankDetails.getAccountNumber();
-        bankDetails.getName();
-        bankDetails.getBalance();
 
-        bankDetails.setAccountNumber("0000175J");
-        bankDetails.setName("John");
-        bankDetails.setBalance(788.41f);
-    }
-    static float deposit(Float amount){
+    static double deposit(double amount){
         return amount + balance;
     }
-    static float withdraw(Float amount){
+    static double withdraw(Float amount){
         if(balance>amount)
             try {
                 return balance-amount;
@@ -87,7 +77,16 @@ public class BankAccountBase {
             }
         return 0;
     }
-    static Float calculateInterest(){
+    static double calculateInterest(){
         return 0.0f;
+    }
+
+    @Override
+    public String toString() {
+        return "BankAccountBase{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", dateCreated=" + dateCreated +
+                '}';
     }
 }
