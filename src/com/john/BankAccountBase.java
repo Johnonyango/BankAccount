@@ -31,6 +31,7 @@ public class BankAccountBase {
     void showBalance(){
         System.out.println(this.balance);
     }
+
     void deposit(double amount) throws NegativeBalanceExeption{
         this.setBalance(this.getBalance() + amount);
         this.showBalance();
