@@ -32,18 +32,21 @@ public class BankAccountBase {
         System.out.println(this.balance);
     }
 
-    void deposit(double amount) throws NegativeBalanceExeption{
+    void deposit(double amount){
         this.setBalance(this.getBalance() + amount);
         this.showBalance();
     }
-    void withdraw(Double amount) throws InsufficientBalanceException {
-        if(this.balance< amount)
-            throw new InsufficientBalanceException();
-        this.setBalance(this.balance-amount); //********
-        this.showBalance();
+    void withdraw(Double amount){
+            try {
+                if(amount>balance)
+                    this.setBalance(this.balance-amount); //********
+                this.showBalance();
+            }catch (NullPointerException n){
+                System.out.println("This code is being corrected for null value pointer");
+            }
     }
     void calculateInterest(){
-        System.out.println("Interest");
+        System.out.println("This method will return interest");
     }
 
 //    Getters and setters

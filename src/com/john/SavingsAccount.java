@@ -1,14 +1,12 @@
 package com.john;
 
-import org.jetbrains.annotations.NotNull;
-
 public class SavingsAccount extends BankAccountBase {
 
     public SavingsAccount() {
         super();
     }
 
-    public SavingsAccount(String accountNumber, String name, double balance) throws NegativeBalanceExeption {
+    public SavingsAccount(String accountNumber, String name, double balance) throws NegativeBalanceException {
         super(accountNumber, name, balance);
     }
 
