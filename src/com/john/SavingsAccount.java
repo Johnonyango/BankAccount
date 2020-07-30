@@ -15,7 +15,7 @@ public class SavingsAccount extends BankAccountBase {
         super.calculateInterest();
         final double rate = 5 / 100;
         final int time = 1; // Year
-        double interest = (rate * getBalance() * time);
+        double interest = (getBalance() *time * rate);
         this.setBalance(getBalance() + interest);
         this.showBalance();
         System.out.println("added interest and updated balance");

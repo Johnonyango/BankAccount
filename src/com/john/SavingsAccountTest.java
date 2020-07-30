@@ -9,5 +9,6 @@ public class SavingsAccountTest {
     public void calculateInterest(){
         int time=1; //year;
         assertEquals(1, time);
+
     }
 }
